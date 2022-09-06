@@ -29,55 +29,214 @@ LeftFrame.pack(side=LEFT)
  
 LogoLabel = Label(width=450, height=400,image=logo,bg='black')
 LogoLabel.place(x=200,y=5)
-def Lertudo():
-   
-    cols = ['semana','visitantes','nvisitantes','sessoes','rejeicao','nrejeicao','leads','clientes','custo','display','novo_display','organico','novo_organico','pago','novo_pago','direta','novo_direta' ,'social','novo_social' ,'email','novo_email','ref','nref','ebook', 'antecipacao','materia','consultoria','contato','ctr','cpc','impressao','conversao','nome']
-    root = Toplevel()
-    root.geometry('700x700')
-    root.title('Dados site')
-    tree = Treeview(root,columns=cols,show='headings')
-    tree.pack(fill='both',expand=True)
-    sbarr = Scrollbar(tree,orient='vertical',command=tree.yview)
-    sbarr.pack(side ='right',fill='y')
-    hbarr = Scrollbar(tree,orient='horizontal',command=tree.xview)
-    hbarr.pack(side ='bottom',fill='x')
-    tree.configure(xscrollcommand=sbarr.set)
-    tree.configure(yscrollcommand=hbarr.set)
 
+def Jan_Conv():
+   
+    janc = Toplevel(jan)
+    janc.title('Site KPi')
+    janc.geometry('800x600')
+    janc.configure(background="grey")
+    janc.resizable(width=False,height=False)
+   
+    SemanaLabel = Label(janc,text='Semana')
+    SemanaLabel.place(x = 50, y = 20)
+   
+    SemanaEntry = Entry(janc,width=30)
+    SemanaEntry.place(x=170,y=20)
+ 
+    EbookLabel = Label(janc,text='E-book')
+    EbookLabel.place(x = 50, y = 50)
+ 
+    EbookEntry = Entry(janc,width=30)
+    EbookEntry.place(x=170,y=50)
+ 
+ 
+    AntLabel = Label(janc,text='Antecipação  de recebíveis')
+    AntLabel.place(x = 50, y = 80)
+ 
+    AntEntry = Entry(janc,width=30)
+    AntEntry.place(x=170,y=80)
+ 
+    MatLabel = Label(janc,text='Antecipação de Materia Prima')
+    MatLabel.place(x = 50, y = 110)
+ 
+    MatEntry = Entry(janc,width=30)
+    MatEntry.place(x=170,y=110)
+ 
+    ConsuLabel = Label(janc,text='Consultoria')
+    ConsuLabel.place(x = 50, y = 140)
+ 
+    ConsulEntry = Entry(janc,width=30)
+    ConsulEntry.place(x=170,y=140)
+ 
+    ContLabel = Label(janc,text='Contato')
+    ContLabel.place(x = 50, y = 170)
+ 
+    ContEntry = Entry(janc,width=30)
+    ContEntry.place(x=170,y=170)
+ 
+    
+    
+    # Concetar 
+    def LerCov():
+        cols = ['ID','semana3', 'ebook', 'antecipacao','materia', 'consultoria','contato']
+        root = Toplevel(janc)
+        root.geometry('800x800')
+        root.title('Dados site')
+        tree = Treeview(root,columns=cols,show='headings')
+        tree.pack(fill='both',expand=True)
+        sbarr = Scrollbar(tree,orient='vertical',command=tree.yview)
+        sbarr.pack(side ='right',fill='both')
+        hbarr = Scrollbar(tree,orient='horizontal',command=tree.xview)
+        hbarr.pack(side ='bottom',fill='x')
+        tree.configure(yscrollcommand=sbarr.set)
+        tree.configure(xscrollcommand=hbarr.set)
+        
        
-    for i in cols:
-        tree.column(i,minwidth=0,width=50,anchor='center')
-        tree.heading(i,text=i)
+        for i in cols:
+            tree.column(i,minwidth=0,width=50,anchor='center')
+            tree.heading(i,text=i)
         
             
        
-    conexao = sql.connect(host='localhost',user='root',password='1234',database='dados')
+        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
             
-    cursor = conexao.cursor()
-    comando = f"""select semana,visitantes,nvisitantes,sessoes,rejeicao,nrejeicao,leads,clientes,custo,display,novo_display,organico,novo_organico,pago,novo_pago,direta,novo_direta ,social,novo_social,email,novo_email,ref,nref,ebook, antecipacao,materia,consultoria,contato,ctr,cpc,impressao,conversao,nome  from site
-
-inner join trafego_total
-on semana = semana1
-
-inner join trafego_novo
-on semana = semana2
-
-inner join conversoes
-on semana= semana3
-
-inner join medidas_google
-on semana = semana8;"""
-    cursor.execute(comando)
-    resultado = cursor.fetchall()
-    for i in resultado:
-        tree.insert("",'end',values=i)
+        cursor = conexao.cursor()
+        comando = f"""select * from conversoes"""
+        cursor.execute(comando)
+        resultado = cursor.fetchall()
+        for i in resultado:
+            tree.insert("",'end',values=i)
         
         
         
        
         cursor.close()
         conexao.close()
-     
+        
+        
+    
+    def jan_Upconv():
+        jan_up = Toplevel(janc)
+        jan_up.title('Atualizar - Conversoes')
+        jan_up.geometry('800x600')
+        jan_up.configure(background="grey")
+        jan_up.resizable(width=False,height=False)
+ 
+        SelLabel = Label(jan_up,text='Informe um campo a ser alterado')
+        SelLabel.place(x = 50, y = 20)
+         
+        SelEntry = Entry(jan_up,width=15)
+        SelEntry.place(x=50,y=50)
+        
+        avLabel =  Label(jan_up,text='Informe o ID')
+        avLabel.place(x=300,y=20)
+        
+        avEntry = Entry(jan_up,width=15)
+        avEntry.place(x=300,y=50)
+       
+        nvLabel = Label(jan_up,text='Informe o novo valor')
+        nvLabel.place(x=500,y=20)
+        nvEntry = Entry(jan_up,width=15)
+        nvEntry.place(x=500,y=50)
+
+        
+ 
+        l = Listbox(jan_up,selectmode='single')
+       
+        l.place(x=50,y=150,width=200,height=200)
+        yscrollbar = Scrollbar(l)
+        yscrollbar.pack(side = RIGHT, fill = Y)
+        selecao =['semana3', 'ebook', 'antecipacao','materia', 'consultoria','contato']
+        for i in selecao:
+            l.insert(END,i)
+        
+        def Apagar():
+            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+        # Criação
+            
+            id = avEntry.get()
+            cursor = conexao.cursor()
+            comando = f"""delete from conversoes  where  IDcov = "{id}"; """
+            cursor.execute(comando)
+            conexao.commit()
+            messagebox.showinfo('ok','Apagado com sucesso!')
+       
+            cursor.close()
+            conexao.close()
+
+
+
+        def Comando():   
+            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+        # Criação
+            Selecionado = SelEntry.get()
+            Novo = nvEntry.get()
+            id = avEntry.get()
+           
+            cursor = conexao.cursor()
+            comando = f"""update  conversoes set {Selecionado} = "{Novo}" where  IDcov = "{id}"; """
+            cursor.execute(comando)
+            conexao.commit()
+
+            messagebox.showinfo('ok','Atualizado com sucesso')
+       
+            cursor.close()
+            conexao.close()
+
+            
+ 
+       
+       
+        bt = Button(jan_up,text='Alterar dados',font={'century gothic',20} , bg='grey',fg='black',command=Comando)
+        bt.place(x=250,y=100)
+
+        bt2 = Button(jan_up,text='Apagar(Informe somente o ID)',font={'century gothic',20} , bg='grey',fg='black',command=Apagar)
+        bt2.place(x=400,y=100)
+
+        
+           
+           
+ 
+   
+ 
+    # Adicionar dados no site
+    def Add_Cov():
+        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+        # Criação
+        semana = SemanaEntry.get()
+        ebook= EbookEntry.get()
+        antecipacao = AntEntry.get()
+        materiais = AntEntry.get()
+        consultoria = ConsulEntry.get()
+        contato = ContEntry.get()
+        
+ 
+        cursor = conexao.cursor()
+        comando = f"""insert into  conversoes (semana3, ebook, antecipacao,materia, consultoria,contato) values("{semana}","{ebook}","{antecipacao}","{materiais}","{consultoria}","{contato}")"""
+        cursor.execute(comando)
+        conexao.commit()
+
+        messagebox.showinfo('Informação','Dados inseridos com sucesso!')
+       
+        cursor.close()
+        conexao.close()
+   
+       
+ 
+ 
+   
+   
+   
+    AddButton = Button(janc,text='Inserir',font={'century gothic',20} , bg='grey',fg='black',command=Add_Cov)
+    AddButton.place(x=200,y=300)
+ 
+    UpButton = Button(janc,text='Alterar dados',font={'century gothic',20} , bg='grey',fg='black',command=jan_Upconv)
+    UpButton.place(x=300,y=300)
+
+    LerButton = Button(janc,text='Ler dados',font={'century gothic',20} , bg='grey',fg='black',command=LerCov)
+    LerButton.place(x=450,y=300)
+  
 # Aba do site 
 def Jan_Site():
    
@@ -164,7 +323,7 @@ def Jan_Site():
         
             
        
-        conexao = sql.connect(host='localhost',user='root',password='1234',database='dados')
+        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
             
         cursor = conexao.cursor()
         comando = f"""select * from site"""
@@ -217,7 +376,7 @@ def Jan_Site():
             l.insert(END,i)
         
         def Apagar():
-            conexao = sql.connect(host='localhost',user='root',password='1234',database='dados')
+            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
         # Criação
             
             id = avEntry.get()
@@ -233,7 +392,7 @@ def Jan_Site():
 
 
         def Comando():   
-            conexao = sql.connect(host='localhost',user='root',password='1234',database='dados')
+            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
         # Criação
             Selecionado = SelEntry.get()
             Novo = nvEntry.get()
@@ -267,7 +426,7 @@ def Jan_Site():
  
     # Adicionar dados no site
     def Add_site():
-        conexao = sql.connect(host='localhost',user='root',password='1234',database='dados')
+        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
         # Criação
         semana = SemanaEntry.get()
         visitantes = VisitantesEntry.get()
@@ -382,7 +541,7 @@ def Jan_Lik():
         
             
        
-        conexao = sql.connect(host='localhost',user='root',password='1234',database='dados')
+        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
             
         cursor = conexao.cursor()
         comando = f"""select * from linkedin"""
@@ -428,17 +587,17 @@ def Jan_Lik():
         l.place(x=50,y=150,width=200,height=200)
         yscrollbar = Scrollbar(l)
         yscrollbar.pack(side = RIGHT, fill = Y)
-        selecao =['semana5','visitas,novos_visitantes','novos_gurpos','novos_seguidores','botao_site','gastos','leads']
+        selecao =['semana5','visitas','novos_visitantes','novos_gurpos','novos_seguidores','botao_site','gastos','leads']
         for i in selecao:
             l.insert(END,i)
         
         def Apagar():
-            conexao = sql.connect(host='localhost',user='root',password='1234',database='dados')
+            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
         # Criação
             
             id = avEntry.get()
             cursor = conexao.cursor()
-            comando = f"""delete from site  where  IDsite = "{id}"; """
+            comando = f"""delete from linkedin  where  IDlink = "{id}"; """
             cursor.execute(comando)
             conexao.commit()
             messagebox.showinfo('ok','Apagado com sucesso!')
@@ -448,7 +607,7 @@ def Jan_Lik():
 
           
         def Comando():   
-            conexao = sql.connect(host='localhost',user='root',password='1234',database='dados')
+            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
         # Criação
             Selecionado = SelEntry.get()
             Novo = nvEntry.get()
@@ -473,7 +632,7 @@ def Jan_Lik():
  
  
     def Add_Link():
-        conexao = sql.connect(host='localhost',user='root',password='1234',database='dados')
+        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
         # Criação
         semana = SemanaEntry.get()
         visitantes = VisitantesEntry.get()
@@ -570,7 +729,7 @@ def Jan_Insta():
         
             
        
-        conexao = sql.connect(host='localhost',user='root',password='1234',database='dados')
+        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
             
         cursor = conexao.cursor()
         comando = f"""select * from instagram"""
@@ -624,7 +783,7 @@ def Jan_Insta():
         
 
         def Apagar():
-            conexao = sql.connect(host='localhost',user='root',password='1234',database='dados')
+            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
         # Criação
             
             id = avEntry.get()
@@ -637,7 +796,7 @@ def Jan_Insta():
             cursor.close()
 
         def Comando():   
-            conexao = sql.connect(host='localhost',user='root',password='1234',database='dados')
+            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
         # Criação
             Selecionado = SelEntry.get()
             Novo = nvEntry.get()
@@ -664,7 +823,7 @@ def Jan_Insta():
     
     def Add_insta():
        
-        conexao = sql.connect(host='localhost',user='root',password='1234',database='dados')
+        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
         # Criação
         semana = SemanaEntry.get()
         curtidas= CurtidasEntry.get()
@@ -746,7 +905,7 @@ def Jan_Goo():
         cols = ['ID','semana8','ctr','cpc','custo3','impressao','conversao','nome']
         root = Toplevel(jan5)
         root.geometry('800x800')
-        root.title('Dados site')
+        root.title('Dados Google')
         tree = Treeview(root,columns=cols,show='headings')
         tree.pack(fill='both',expand=True)
         sbarr = Scrollbar(tree,orient='vertical',command=tree.yview)
@@ -763,7 +922,7 @@ def Jan_Goo():
         
             
        
-        conexao = sql.connect(host='localhost',user='root',password='1234',database='dados')
+        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
             
         cursor = conexao.cursor()
         comando = f"""select * from medidas_google"""
@@ -816,7 +975,7 @@ def Jan_Goo():
             l.insert(END,i)
           
         def Apagar():
-            conexao = sql.connect(host='localhost',user='root',password='1234',database='dados')
+            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
         # Criação
             
             id = avEntry.get()
@@ -830,7 +989,7 @@ def Jan_Goo():
             conexao.close()
 
         def Comando():   
-            conexao = sql.connect(host='localhost',user='root',password='1234',database='dados')
+            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
         # Criação
             Selecionado = SelEntry.get()
             Novo = nvEntry.get()
@@ -854,7 +1013,7 @@ def Jan_Goo():
  
     
     def Add_google():
-        conexao = sql.connect(host='localhost',user='root',password='1234',database='dados')
+        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
         # Criação
         semana = SemanaEntry.get()
         ctr = CtrEntry.get()
@@ -885,6 +1044,7 @@ def Jan_Goo():
     UpButton.place(x=300,y=300)
     Lergobt3 = Button(jan5,text='Ler dados do Google',font={'century gothic',20},bg='grey',fg='black',command=LerGo)
     Lergobt3.place(x=450,y=300)   
+
 
 def jan_tt():
    
@@ -950,7 +1110,7 @@ def jan_tt():
         cols = ['ID','Semana','display','organico' ,'pago','direta' ,'social' ,'email','ref']
         root = Toplevel(jantf)
         root.geometry('800x800')
-        root.title('Dados site')
+        root.title('Dados Trafego total')
         tree = Treeview(root,columns=cols,show='headings')
         tree.pack(fill='both',expand=True)
         sbarr = Scrollbar(tree,orient='vertical',command=tree.yview)
@@ -967,7 +1127,7 @@ def jan_tt():
         
             
        
-        conexao = sql.connect(host='localhost',user='root',password='1234',database='dados')
+        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
             
         cursor = conexao.cursor()
         comando = f"""select * from trafego_total"""
@@ -1020,7 +1180,7 @@ def jan_tt():
             l.insert(END,i)
         
         def Apagar():
-            conexao = sql.connect(host='localhost',user='root',password='1234',database='dados')
+            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
         # Criação
             
             id = avEntry.get()
@@ -1036,7 +1196,7 @@ def jan_tt():
 
 
         def Comando():   
-            conexao = sql.connect(host='localhost',user='root',password='1234',database='dados')
+            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
         # Criação
             Selecionado = SelEntry.get()
             Novo = nvEntry.get()
@@ -1070,7 +1230,7 @@ def jan_tt():
  
     # Adicionar dados no site
     def Add_tt():
-        conexao = sql.connect(host='localhost',user='root',password='1234',database='dados')
+        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
         # Criação
         semana = SemanaEntry.get()
         Display = DisplayEntry.get()
@@ -1111,7 +1271,7 @@ def jan_tt():
 def jan_tn():
    
     jantn = Toplevel(jan)
-    jantn.title('Trafego Total - KPi')
+    jantn.title('Trafego novo - KPi')
     jantn.geometry('800x600')
     jantn.configure(background="grey")
     jantn.resizable(width=False,height=False)
@@ -1172,7 +1332,7 @@ def jan_tn():
         cols = ['ID','Semana','display','organico' ,'pago','direta' ,'social' ,'email','ref']
         root = Toplevel(jantn)
         root.geometry('800x800')
-        root.title('Trafego total')
+        root.title('Trafego novo')
         tree = Treeview(root,columns=cols,show='headings')
         tree.pack(fill='both',expand=True)
         sbarr = Scrollbar(tree,orient='vertical',command=tree.yview)
@@ -1189,7 +1349,7 @@ def jan_tn():
         
             
        
-        conexao = sql.connect(host='localhost',user='root',password='1234',database='dados')
+        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
             
         cursor = conexao.cursor()
         comando = f"""select * from trafego_novo"""
@@ -1242,7 +1402,7 @@ def jan_tn():
             l.insert(END,i)
         
         def Apagar():
-            conexao = sql.connect(host='localhost',user='root',password='1234',database='dados')
+            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
         # Criação
             
             id = avEntry.get()
@@ -1258,14 +1418,14 @@ def jan_tn():
 
 
         def Comando():   
-            conexao = sql.connect(host='localhost',user='root',password='1234',database='dados')
+            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
         # Criação
             Selecionado = SelEntry.get()
             Novo = nvEntry.get()
             id = avEntry.get()
            
             cursor = conexao.cursor()
-            comando = f"""update  trafego_novo set {Selecionado} = "{Novo}" where  ID_tn = "{id}"; """
+            comando = f"""update  trafego_novo set {Selecionado} = "{Novo}" where  IDtt = "{id}"; """
             cursor.execute(comando)
             conexao.commit()
 
@@ -1292,7 +1452,7 @@ def jan_tn():
  
     # Adicionar dados no site
     def Add_tt():
-        conexao = sql.connect(host='localhost',user='root',password='1234',database='dados')
+        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
         # Criação
         semana = SemanaEntry.get()
         Display = DisplayEntry.get()
@@ -1329,6 +1489,7 @@ def jan_tn():
     LerButton = Button(jantn,text='Ler dados',font={'century gothic',20} , bg='grey',fg='black',command=LerTf)
     LerButton.place(x=450,y=300)
 
+
 def Rel():
     webbrowser.open('https://app.powerbi.com/links/5jvVDGc2rR?ctid=ceda6518-cbc2-4f99-ace9-6c5749c41993&pbi_source=linkShare')
  
@@ -1352,7 +1513,7 @@ TrafegototalButton.place(x=50, y=260)
 TrafegoNovoButton = Button(text='Trafego Novo: ',font={'century gothic',20} , bg='grey',fg='black',command=jan_tn) 
 TrafegoNovoButton.place(x=50, y =320)
 
-LerButton = Button(text='Todos os dados: ',font={'century gothic',20} , bg='grey',fg='black',command=Lertudo)
+LerButton = Button(text='Conversão: ',font={'century gothic',20} , bg='grey',fg='black',command=Jan_Conv)
 LerButton.place(x= 50, y =380)
 
 RelButton =  Button(text='Relatório: ',font={'century gothic',20} , bg='grey',fg='black',command=Rel)
