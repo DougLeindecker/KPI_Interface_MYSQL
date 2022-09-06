@@ -99,7 +99,7 @@ def Jan_Conv():
         
             
        
-        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+        conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
             
         cursor = conexao.cursor()
         comando = f"""select * from conversoes"""
@@ -152,7 +152,7 @@ def Jan_Conv():
             l.insert(END,i)
         
         def Apagar():
-            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+            conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
         # Criação
             
             id = avEntry.get()
@@ -168,7 +168,7 @@ def Jan_Conv():
 
 
         def Comando():   
-            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+            conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
         # Criação
             Selecionado = SelEntry.get()
             Novo = nvEntry.get()
@@ -202,7 +202,7 @@ def Jan_Conv():
  
     # Adicionar dados no site
     def Add_Cov():
-        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+        conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
         # Criação
         semana = SemanaEntry.get()
         ebook= EbookEntry.get()
@@ -323,7 +323,7 @@ def Jan_Site():
         
             
        
-        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+        conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
             
         cursor = conexao.cursor()
         comando = f"""select * from site"""
@@ -376,7 +376,7 @@ def Jan_Site():
             l.insert(END,i)
         
         def Apagar():
-            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+            conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
         # Criação
             
             id = avEntry.get()
@@ -392,7 +392,7 @@ def Jan_Site():
 
 
         def Comando():   
-            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+            conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
         # Criação
             Selecionado = SelEntry.get()
             Novo = nvEntry.get()
@@ -426,7 +426,7 @@ def Jan_Site():
  
     # Adicionar dados no site
     def Add_site():
-        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+        conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
         # Criação
         semana = SemanaEntry.get()
         visitantes = VisitantesEntry.get()
@@ -541,7 +541,7 @@ def Jan_Lik():
         
             
        
-        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+        conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
             
         cursor = conexao.cursor()
         comando = f"""select * from linkedin"""
@@ -592,7 +592,7 @@ def Jan_Lik():
             l.insert(END,i)
         
         def Apagar():
-            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+            conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
         # Criação
             
             id = avEntry.get()
@@ -607,7 +607,7 @@ def Jan_Lik():
 
           
         def Comando():   
-            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+            conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
         # Criação
             Selecionado = SelEntry.get()
             Novo = nvEntry.get()
@@ -632,7 +632,7 @@ def Jan_Lik():
  
  
     def Add_Link():
-        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+        conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
         # Criação
         semana = SemanaEntry.get()
         visitantes = VisitantesEntry.get()
@@ -729,7 +729,7 @@ def Jan_Insta():
         
             
        
-        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+        conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
             
         cursor = conexao.cursor()
         comando = f"""select * from instagram"""
@@ -783,7 +783,7 @@ def Jan_Insta():
         
 
         def Apagar():
-            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+            conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
         # Criação
             
             id = avEntry.get()
@@ -796,7 +796,7 @@ def Jan_Insta():
             cursor.close()
 
         def Comando():   
-            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+            conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
         # Criação
             Selecionado = SelEntry.get()
             Novo = nvEntry.get()
@@ -823,7 +823,7 @@ def Jan_Insta():
     
     def Add_insta():
        
-        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+        conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
         # Criação
         semana = SemanaEntry.get()
         curtidas= CurtidasEntry.get()
@@ -922,7 +922,7 @@ def Jan_Goo():
         
             
        
-        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+        conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
             
         cursor = conexao.cursor()
         comando = f"""select * from medidas_google"""
@@ -975,7 +975,7 @@ def Jan_Goo():
             l.insert(END,i)
           
         def Apagar():
-            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+            conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
         # Criação
             
             id = avEntry.get()
@@ -989,7 +989,7 @@ def Jan_Goo():
             conexao.close()
 
         def Comando():   
-            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+            conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
         # Criação
             Selecionado = SelEntry.get()
             Novo = nvEntry.get()
@@ -1013,7 +1013,7 @@ def Jan_Goo():
  
     
     def Add_google():
-        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+        conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
         # Criação
         semana = SemanaEntry.get()
         ctr = CtrEntry.get()
@@ -1127,7 +1127,7 @@ def jan_tt():
         
             
        
-        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+        conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
             
         cursor = conexao.cursor()
         comando = f"""select * from trafego_total"""
@@ -1180,7 +1180,7 @@ def jan_tt():
             l.insert(END,i)
         
         def Apagar():
-            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+            conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
         # Criação
             
             id = avEntry.get()
@@ -1196,7 +1196,7 @@ def jan_tt():
 
 
         def Comando():   
-            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+            conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
         # Criação
             Selecionado = SelEntry.get()
             Novo = nvEntry.get()
@@ -1230,7 +1230,7 @@ def jan_tt():
  
     # Adicionar dados no site
     def Add_tt():
-        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+        conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
         # Criação
         semana = SemanaEntry.get()
         Display = DisplayEntry.get()
@@ -1349,7 +1349,7 @@ def jan_tn():
         
             
        
-        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+        conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
             
         cursor = conexao.cursor()
         comando = f"""select * from trafego_novo"""
@@ -1402,7 +1402,7 @@ def jan_tn():
             l.insert(END,i)
         
         def Apagar():
-            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+            conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
         # Criação
             
             id = avEntry.get()
@@ -1418,7 +1418,7 @@ def jan_tn():
 
 
         def Comando():   
-            conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+            conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
         # Criação
             Selecionado = SelEntry.get()
             Novo = nvEntry.get()
@@ -1452,7 +1452,7 @@ def jan_tn():
  
     # Adicionar dados no site
     def Add_tt():
-        conexao = sql.connect(host='sql10.freemysqlhosting.net',user='sql10516146',password='NuztDdYbSi',database='sql10516146')
+        conexao = sql.connect(host='h1.host.filess.io',user='user_dados_a0c4d27e65',password='479141f5b7cfa7712f2cf54c28146f5d5023cf93',database='dados_6684d39d62')
         # Criação
         semana = SemanaEntry.get()
         Display = DisplayEntry.get()
@@ -1524,7 +1524,7 @@ RelButton.place(x=50,y=440)
 jan.mainloop()
  
  
-# Corrigir trafego novo e total. não apaga e não atualiza
+
 
  
 
